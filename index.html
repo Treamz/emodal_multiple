@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.container-evans img {
+			width: 300px;
+			height: auto;
+			display: block;
+			margin: 0 auto;
+		}
+	</style>
+	<link rel="stylesheet" href="evans_modal.css">
+</head>
+<body>
+	<div class="container-evans">
+		<a href="#" id="emodal"><img src="https://files.allaboutbirds.net/wp-content/uploads/2015/06/prow-featured.jpg" alt=""></a>
+		<a href="#" id="emodal"><img src="https://i.kinja-img.com/gawker-media/image/upload/s--CWKHA2W9--/c_scale,f_auto,fl_progressive,q_80,w_800/yxeok4wpwe54cn9y05j1.jpg" alt=""></a>
+	</div>
+
+    <div id="evans_modal" class="evans_modal"></div>
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+    <script>
+var modal_frm = document.getElementById('evans_modal');
+var cards = document.querySelectorAll("#emodal");
+var evans_modal_content = '<div class="evans_modal_content"><img id="modaled" src="alt" alt=""></div>';
+for (var i = 0; i < cards.length; i++) {
+	var card = cards[i];
+	card.onclick = function () {
+		if (this.id.indexOf('emodal') >= 0) {
+			var modal_img = this.getElementsByTagName("img")[0].src;
+			  console.log(modal_img);
+			  modal_frm.innerHTML = evans_modal_content;
+			  var imgSrc = document.getElementById('modaled').src = modal_img;
+			  modal_frm.classList.toggle('active_modal');
+             
+			
+		}
+		else {
+			this.classList.add("block");
+			this.classList.remove("rotated");
+		}
+	};
+}
+modal_frm.onclick = function() {
+       	modal_frm.classList.toggle('active_modal');
+       }
+    </script>
+
+	<script src="evans_moda1l.js"></script>
+</body>
+</html>
